@@ -1,0 +1,8 @@
+.env
+*.log
+/.idea
+/images
+test.py
+*.json
+insta.py
+
