@@ -1,12 +1,11 @@
-# Bitlink management
+# Insta posting
 ***
 ## Why
 THis is a training project for better understanding how to work with API services.
 ## Prerequisites  
-The API-site for the testing is [bitly.com](https://bitly.com).  
-You need to register there and obtain a token for the work, look [the guide](https://dev.bitly.com/get_started.html).  
-The token provides authorization on the services. You should put it your system environment.  
-After that program derives it by `os.getenv` function.  
+The first API-site for the testing is [SpaceX=API](https://github.com/r-spacex/SpaceX-API).
+The second is  [HubbleSite](http://hubblesite.org/api/documentation).
+There is no registration required for the API usage. 
 
 ## Installing
 The code executes by __Python 3.7__, it should installed.   
@@ -21,7 +20,6 @@ There are 2 modes you should choose from:
 
 ## Example
     python bitlink.py list  
-    {"bit.ly/2EgbuuE": {"bitlink": "http://bit.ly/2EgbuuE","stat_per_day": [{"2019.02.17": 1}]}}
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/psergal/bitly/blob/master/license.md) file for details  
