@@ -16,3 +16,6 @@ spacex_api = 'https://api.spacexdata.com/v3/launches'
 hubble_api = "http://hubblesite.org/api/v3/image/"
 hubble_img_id = '3851'
 mode = 'latest'
+inst_name = os.getenv('inst_name')
+inst_pass = os.getenv('inst_pass')
+
