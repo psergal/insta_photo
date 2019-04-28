@@ -4,9 +4,28 @@ import logging
 import http.client as httplib
 import os
 import pathlib
-import json
+import sys
 import random
 import settings
+
+
+def download(url, filename, logger):
+    with open(filename, 'wb') as f:
+        response = requests.get(url, stream=True, headers=settings.headers)
+        total = response.headers.get('content-length')
+
+        if total is None:
+            logger.error(response.content)
+        else:
+            downloaded = 0
+            total = int(total)
+            for data in response.iter_content(chunk_size=max(int(total/1000), 1024*1024)):
+                downloaded += len(data)
+                f.write(data)
+                done = int(50*downloaded/total)
+                sys.stdout.write('\r[{}{}]'.format('█' * done, '.' * (50-done)))
+                sys.stdout.flush()
+    sys.stdout.write('\n')
 
 
 def link_to_pic_name(url):
@@ -31,13 +50,9 @@ def fetch_hubble_imgs (hubble_api, image_id, logger):
         url_tuple = urlparse(link)
         settings.headers['Host'] = url_tuple[1]
         logger.info(f'START download {link} to {settings.cur_dir}')
-        resp = requests.get(link, headers=settings.headers)
-        logger.info(f'Результат ссылки {link} на существование:{resp.status_code}')
-        if not resp.ok:
-            return exit(1)
-        with open(os.path.join(settings.image_path, img_name), 'wb') as q:
-            q.write(resp.content)
-        logger.info(f'Скачали файл {img_name} по ссылке:{link}')
+        print(f'[*] Downloading test file{img_name}')
+        download(link, os.path.join(settings.image_path, img_name),logger)
+        print('[*] Done!')
     return
 
 
