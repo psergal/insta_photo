@@ -8,6 +8,5 @@ insta.py
 *.checkpoint
 *.txt
 settings.py
-insta_.py
-
+fetch_pict.py
 
