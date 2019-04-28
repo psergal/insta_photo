@@ -43,7 +43,7 @@ def fetch_hubble_imgs (hubble_api, image_id, logger):
     logger.info(f'Результат ссылки {hubble_api} на существование:{resp.status_code}')
     if not resp.ok:
         return exit(1)
-    img_links =[image_file.get('file_url')  for image_file in resp.json().get('image_files')]
+    img_links =[image_file.get('file_url') for image_file in resp.json().get('image_files')]
 
     for image_enum, link in enumerate(img_links):
         link_f_name, link_f_ext = link_to_pic_name(link)
