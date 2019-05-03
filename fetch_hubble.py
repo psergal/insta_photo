@@ -7,10 +7,6 @@ import pathlib
 from urllib.parse import urlparse
 
 
-def link_to_pic_name(url):
-    return url.split('/')[-1], url.split('.')[-1]
-
-
 def download(url, headers, filename, logger):
     with open(filename, 'wb') as f:
         response = requests.get(url, stream=True, headers=headers)
@@ -58,8 +54,7 @@ def fetch_hubble():
             return exit(1)
         img_links = [image_file.get('file_url') for image_file in resp.json().get('image_files')]
         for image_enum, link in enumerate(img_links):
-            link_f_name, link_f_ext = link_to_pic_name(link)
-            img_name = f'{image_id}{image_enum}.{link_f_ext}'
+            img_name = f'{image_id}{image_enum}.{pathlib.Path(link).suffix}'
             url_tuple = urlparse(link)
             headers['Host'] = url_tuple[1]
             logger.info(f'START download {link} to {cur_dir}')

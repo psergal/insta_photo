@@ -41,7 +41,7 @@ def fetch_spacex():
         elif flight_mode == 'latest':
             flight_with_pics = flights_with_links.get(max(flights_with_links.keys()))
         for image_enum, link in enumerate(flight_with_pics):
-            img_name = f'{image_name}{image_enum}.jpg'
+            img_name = f'{image_name}{image_enum}.{pathlib.Path(link).suffix}'
             logger.info(f'START download {link} to {cur_dir}')
             url_tuple = urlparse(link)
             headers['Host'] = url_tuple[1]

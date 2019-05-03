@@ -9,4 +9,5 @@ insta.py
 *.txt
 settings.py
 fetch_pict.py
-
+/config
+/arcive

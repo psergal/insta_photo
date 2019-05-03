@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from instabot import Bot
 
 
-def isnta_upload():
+def insta_upload():
     log_format = "%(levelname)s %(asctime)s - %(message)s"
     httplib.HTTPConnection.debuglevel = 0  # 1 -включает
     logging.basicConfig(filename='insta.log', level=logging.DEBUG, format=log_format, filemode='w')
@@ -35,4 +35,4 @@ def isnta_upload():
 
 
 if __name__ == '__main__':
-    isnta_upload()
+    insta_upload()
