@@ -5,14 +5,15 @@ import args_handle
 
 
 def insta_upload():
-    image_folder = args_handle.get_args()
+    args = args_handle.get_args()
     load_dotenv()
     inst_name = os.getenv('inst_name')
     inst_pass = os.getenv('inst_pass')
     cur_dir = os.path.dirname(__file__)
-    image_path = os.path.join(cur_dir, image_folder)
+    image_path = os.path.join(cur_dir, args.img_dir)
     pics = os.listdir(image_path)
-
+    if len(pics) == 0:
+        return exit(1)
     bot = Bot()
     bot.login(username=inst_name, password=inst_pass, proxy=None)
 
