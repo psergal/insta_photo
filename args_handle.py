@@ -1,6 +1,7 @@
 import argparse
 import inspect
 
+
 def get_args():
     curframe = inspect.currentframe()
     calframe = inspect.getouterframes(curframe, 2)
@@ -39,6 +40,7 @@ def get_args():
     args = parser.parse_args()
 
     return args
+
 
 if __name__ == '__main__':
     get_args()
