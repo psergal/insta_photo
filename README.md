@@ -20,7 +20,9 @@ into `.env` file. Insta_post module reads from the environments by names:
 
 ## Usage
 There are three independent modules comprise project:
-`fetch_space.py`, `fetch_hubble.py`, `insta_post.py`.
++ `fetch_space.py`
++ `fetch_hubble.py`
++ `insta_post.py`
 ### Easy usage  
 They can be run in the console without args.
 `python fetch_spacex.py` downloads pictures random or latest picture, depending on variables mode.  
